@@ -1,0 +1,23 @@
+# Ignorar las carpetas node_modules tanto del front-end como del back-end
+/front-end/node_modules/
+/back-end/node_modules/
+
+# Archivos y carpetas temporales de sistema
+.DS_Store
+Thumbs.db
+
+# Archivos de configuración de editor
+.idea/
+.vscode/
+
+# Archivos generados por Angular
+/front-end/dist/
+/front-end/.angular/
+
+# Logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Variables de entorno
+.env
