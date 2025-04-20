@@ -1,0 +1,89 @@
+<header class="main-header">
+  <div class="header-container">
+    <div class="logo">Periódico Digital</div>
+    <nav class="nav-links">
+      <a [routerLink]="['']">Inicio</a>
+      <a [routerLink]="['section-view/politics']">Política</a>
+      <a [routerLink]="['section-view/economy']">Economía</a>
+      <a [routerLink]="['section-view/sports']">Deportes</a>
+      <a [routerLink]="['section-view/culture']">Cultura</a>
+      <a [routerLink]="['section-view/science']">Ciencia</a>
+      <div class="auth-links">
+        <a [routerLink]="['/auth/register']">Register</a>
+        <a [routerLink]="['/auth/login']">Login</a>
+      </div>
+    </nav>
+  </div>
+</header>
+
+<main class="homepage-content">
+
+  <section class="highlighted-articles">
+    <div class="highlighted-grid">
+      <!-- Noticia principal grande -->
+      <div class="main-highlight" >
+        @if (mainHighlight) {
+        <div class="highlighted-article">
+          <span class="section">{{ mainHighlight.section }}</span>
+          <img [src]="mainHighlight.image" [alt]="mainHighlight.title">
+          <div class="article-content">
+            <h3>{{ mainHighlight.title }}</h3>
+            <p>{{ mainHighlight.subtitle }}</p>
+          </div>
+        </div>
+      }
+      </div>
+      
+      <!-- Noticias secundarias a la derecha -->
+      <div class="secondary-highlights">
+        <!-- Recorrer noticias secundarias (máximo 2) -->
+        <div class="secondary-highlight">
+          @for (article of secondaryHighlights.slice(0, 2); track $index) {
+            <div class="highlighted-article">
+              <span class="section">{{ article.section }}</span>
+              <img [src]="article.image" [alt]="article.title">
+              <div class="article-content">
+                <h3>{{ article.title }}</h3>
+                <p>{{ article.subtitle }}</p>
+              </div>
+            </div>
+          }
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <section class="generic-articles">
+    <div class="section-header">
+      <h2>Últimas Noticias</h2>
+    </div>
+    <div class="articles-grid">
+      @for (article of genericArticles; track $index) {
+        <article class="article-card">
+          <div class="article-image-container">
+            <span class="section">{{ article.section }}</span>
+            <img [src]="article.image" [alt]="article.title">
+          </div>
+          <div class="article-content">
+            <h3>{{ article.title }}</h3>
+            <p>{{ article.subtitle }}</p>
+            <div class="article-meta">
+              <span class="article-date">
+                <i class="far fa-clock"></i> Hace 3 horas
+              </span>
+              <a [routerLink]="['article-view', article._id]" class="read-more">Leer más <i class="fas fa-arrow-right"></i></a>
+            </div>
+          </div>
+      </article>
+    }
+    </div>
+  </section>
+
+</main>
+
+<footer class="main-footer">
+  <div class="footer-content">
+    <p>&copy; 2025 Periódico Digital. Todos los derechos reservados.</p>
+  </div>
+</footer>

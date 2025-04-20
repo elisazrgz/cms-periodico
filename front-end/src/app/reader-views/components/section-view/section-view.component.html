@@ -1,0 +1,23 @@
+<main>
+    <div class="category-container">
+      
+        <h2 class="category-name">{{section}}</h2>
+
+        <section class="article-grid">
+            @for(article of publishedArticles; track $index) {
+                <div class="article-card">
+                    <h3 class="title">{{ article.title }}</h3>
+                    <h4 class="subtitle">{{ article.subtitle }}</h4>
+                    <div class="content">
+                        <img src= {{article.image}}  />
+                        <p class="paragraph-text">{{ article.body }}</p>
+                        <p><strong>Fecha de publicación:</strong> {{ article.date | date: 'd/M/y' }} </p>
+                        <p><strong>Autor:</strong> {{ article.authorId.completeName }} </p>
+                    </div>
+                </div>
+          }
+        </section>
+    
+    </div>
+
+  </main>

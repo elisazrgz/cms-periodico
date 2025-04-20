@@ -1,0 +1,24 @@
+<main>
+    <!-- Contenedor de la noticia -->
+      <div class="article-container">
+    
+        <div class="article-item">
+          <h2 class="title">{{ article.title }}</h2>
+          <h3 class="subtitle">{{ article.subtitle }}</h3>
+          <div class="content">
+            <img src= {{article.image}}  />
+            <p><strong>Sección:</strong> {{ getSectionInSpanish(article.section) }}</p>
+            <p class="paragraph-text">{{ article.body }}</p>
+            <p><strong>Fecha de creación:</strong> {{ article.createdAt | date: 'd/M/y' }} </p>
+            <p><strong>Últimas modificaciones:</strong> {{ article.updatedAt | date: 'd/M/y' }} </p>
+            @if (article.status === "publish"){
+              <p><strong>Fecha de publicación:</strong> {{ article.date | date: 'd/M/y' }} </p>
+            }
+          </div>
+        
+    
+        </div>
+  
+      </div>
+  
+    </main>
