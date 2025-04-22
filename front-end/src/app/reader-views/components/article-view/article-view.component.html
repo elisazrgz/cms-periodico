@@ -1,3 +1,9 @@
+@if(token){
+  <app-header-logged></app-header-logged>
+} @else {
+  <app-header-unlogged></app-header-unlogged>
+}
+
 <main>
     <!-- Contenedor de la noticia -->
       <div class="article-container">
@@ -22,3 +28,5 @@
       </div>
   
     </main>
+
+<app-footer></app-footer>

@@ -2,15 +2,21 @@ import { Component, inject } from '@angular/core';
 import { ReaderService } from '../services/reader.service';
 import { ActivatedRoute } from '@angular/router';
 import { DatePipe } from '@angular/common';
+import { HeaderLoggedComponent } from '../header-logged/header-logged.component';
+import { HeaderUnloggedComponent } from '../header-unlogged/header-unlogged.component';
+import { FooterComponent } from '../footer/footer.component';
 
 @Component({
   selector: 'app-article-view',
   standalone: true,
-  imports: [DatePipe],
+  imports: [DatePipe, HeaderLoggedComponent, HeaderUnloggedComponent, FooterComponent],
   templateUrl: './article-view.component.html',
   styleUrl: './article-view.component.css'
 })
 export class ArticleViewComponent {
+
+  public token: any = localStorage.getItem("token");
+
   private readerService: ReaderService = inject(ReaderService);
   private activatedRoute: ActivatedRoute = inject(ActivatedRoute);
   public article: any = [];
