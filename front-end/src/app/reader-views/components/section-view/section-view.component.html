@@ -1,23 +1,35 @@
+@if(token){
+  <app-header-logged></app-header-logged>
+} @else {
+  <app-header-unlogged></app-header-unlogged>
+}
 <main>
     <div class="category-container">
       
-        <h2 class="category-name">{{section}}</h2>
-
-        <section class="article-grid">
-            @for(article of publishedArticles; track $index) {
-                <div class="article-card">
-                    <h3 class="title">{{ article.title }}</h3>
-                    <h4 class="subtitle">{{ article.subtitle }}</h4>
-                    <div class="content">
-                        <img src= {{article.image}}  />
-                        <p class="paragraph-text">{{ article.body }}</p>
-                        <p><strong>Fecha de publicación:</strong> {{ article.date | date: 'd/M/y' }} </p>
-                        <p><strong>Autor:</strong> {{ article.authorId.completeName }} </p>
-                    </div>
-                </div>
-          }
-        </section>
+      <h2 class="category-name">{{getSectionInSpanish(section)}}</h2>
+  
+      <div class="article-grid">
+        @for(article of publishedArticles; track $index) {
+          <article class="article-card">
+            <div class="article-image-container">
+              <span class="section">{{getSectionInSpanish(article.section)}}</span>
+              <img [src]="article.image" [alt]="article.title">
+            </div>
+            <div class="article-content">
+              <h3>{{ article.title }}</h3>
+              <p>{{ article.subtitle }}</p>
+              <div class="article-meta">
+                <span class="article-date">
+                  <i class="far fa-clock"></i> {{ article.date | date: 'd/M/y' }}
+                </span>
+                <a [routerLink]="['/article-view', article._id]" class="read-more">Leer más <i class="fas fa-arrow-right"></i></a>
+              </div>
+            </div>
+          </article>
+        }
+      </div>
     
     </div>
-
   </main>
+
+<app-footer></app-footer>

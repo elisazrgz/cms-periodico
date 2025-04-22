@@ -1,20 +1,23 @@
+import { HeaderLoggedComponent } from './../header-logged/header-logged.component';
 import { ReaderService } from './../services/reader.service';
 import { Component, inject, OnInit } from '@angular/core';
-import { ActivatedRoute, RouterModule } from '@angular/router';
+import { RouterModule } from '@angular/router';
 import { CommonModule } from '@angular/common';
+import { FooterComponent } from '../footer/footer.component';
+import { HeaderUnloggedComponent } from '../header-unlogged/header-unlogged.component';
 
 @Component({
   selector: 'app-homepage',
   standalone: true,
-  imports: [ RouterModule, CommonModule],
+  imports: [RouterModule, CommonModule, FooterComponent, HeaderUnloggedComponent, HeaderLoggedComponent],
   templateUrl: './homepage.component.html',
   styleUrl: './homepage.component.css'
 })
 
 export class HomepageComponent implements OnInit{
-  
+
+  public token: any = localStorage.getItem("token");
   private readerService: ReaderService = inject(ReaderService);
-  private activatedRoute: ActivatedRoute = inject(ActivatedRoute);
 
   public publishedArticles: any [] = [];
   public highlightedArticles: any [] = [];
