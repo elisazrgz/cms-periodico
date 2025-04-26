@@ -1,0 +1,64 @@
+<header>
+  <div class="home-button">
+    <a href="" class="btn-home">Volver al Inicio</a>
+  </div>
+</header>
+
+
+<div class="center">
+
+  <h1>Registro de Usuario</h1>
+  <form #registerForm="ngForm" (ngSubmit)="handleRegisterForm()">
+    <div class="txt_field">
+      <input type="text" class="form-control" id="username" name="username" [(ngModel)]="userForm.username" required
+        #username="ngModel">
+      <span></span>
+      <label for="username">Nombre Usuario</label>
+      <div class="invalid-feedback" *ngIf="username.invalid && username.touched">
+        El nombre de usuario es obligatorio
+      </div>
+    </div>
+
+
+    <div class="txt_field">
+      <input type="text" class="form-control" id="completeName" name="completeName" [(ngModel)]="userForm.completeName"
+        required #completeName="ngModel">
+      <span></span>
+      <label for="completeName">Nombre Completo</label>
+      <div class="invalid-feedback" *ngIf="completeName.invalid && completeName.touched">
+        El nombre completo es obligatorio
+      </div>
+    </div>
+
+
+    <div class="txt_field">
+      <select class="form-select" id="role" name="role" [(ngModel)]="userForm.role" required #role="ngModel">
+        <option value="">Selecciona un rol</option>
+        <option value="writer">Escritor</option>
+        <option value="editor">Editor</option>
+      </select>
+      <span></span>
+      <div class="invalid-feedback" *ngIf="role.invalid && role.touched">
+        Debes seleccionar un rol
+      </div>
+    </div>
+
+
+    <div class="txt_field">
+      <input type="password" class="form-control" id="password" name="password" [(ngModel)]="userForm.password" required
+        #password="ngModel" minlength="6">
+      <span></span>
+      <label for="password">Contraseña</label>
+      <small class="password-help">Mínimo 6 caracteres</small>
+      <div class="invalid-feedback" *ngIf="password.invalid && password.touched">
+        <span *ngIf="password.errors?.['required']">La contraseña es obligatoria</span>
+        <span *ngIf="password.errors?.['minlength']">La contraseña debe tener al menos 6 caracteres</span>
+      </div>
+    </div>
+
+
+    <button type="submit" class="button" [disabled]="!registerForm.valid">
+      Registrarse
+    </button>
+  </form>
+</div>

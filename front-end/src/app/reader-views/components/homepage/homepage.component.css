@@ -1,5 +1,5 @@
- /* General reset */
- * {
+/* General reset */
+* {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
@@ -66,20 +66,19 @@ h2::before {
   background-color: #f0f0f0;
 }
 
+/* Estructura de los artículos destacados */
 .main-highlight {
   grid-column: 1;
   grid-row: 1 / span 2;
-  position: relative;
-  overflow: hidden;
   min-height: 500px;
 }
 
 .secondary-highlight {
   position: relative;
-  overflow: hidden;
   min-height: 250px;
 }
 
+/* Común para todos los artículos destacados */
 .highlighted-article {
   position: relative;
   overflow: hidden;
@@ -103,48 +102,7 @@ h2::before {
   transform: scale(1.05);
 }
 
-/* Categoria Labels */
-.section {
-  position: absolute;
-  top: 1rem;
-  left: 1rem;
-  background-color: rgba(33, 33, 33, 0.8);
-  color: white;
-  padding: 0.3rem 0.8rem;
-  border-radius: 4px;
-  font-size: 0.75rem;
-  font-weight: 600;
-  text-transform: uppercase;
-  letter-spacing: 0.5px;
-  backdrop-filter: blur(5px);
-  z-index: 10;
-}
-
-/* Video icon */
-.video-icon {
-  position: absolute;
-  top: 1rem;
-  right: 1rem;
-  background-color: rgba(223, 32, 32, 0.85);
-  color: white;
-  padding: 0.4rem 0.8rem;
-  border-radius: 4px;
-  font-size: 0.75rem;
-  font-weight: 600;
-  text-transform: uppercase;
-  letter-spacing: 0.5px;
-  backdrop-filter: blur(5px);
-  display: flex;
-  align-items: center;
-  gap: 0.4rem;
-  z-index: 10;
-}
-
-.video-icon i {
-  font-size: 0.8rem;
-}
-
-/* Highlighted article overlay */
+/* Overlay para los artículos destacados */
 .highlighted-article::after {
   content: '';
   position: absolute;
@@ -156,6 +114,7 @@ h2::before {
   pointer-events: none;
 }
 
+/* Contenido de los artículos destacados */
 .highlighted-article .article-content {
   z-index: 10;
   color: white;
@@ -190,21 +149,95 @@ h2::before {
 .highlighted-article p {
   color: rgba(255, 255, 255, 0.9);
   margin-bottom: 0.5rem;
-  /* display: -webkit-box;
-  -webkit-line-clamp: 2;
-  -webkit-box-orient: vertical; */
   overflow: hidden;
 }
 
 .main-highlight p {
   font-size: 1.1rem;
   margin-bottom: 1rem;
-  /* -webkit-line-clamp: 3; */
 }
 
 .secondary-highlight p {
   font-size: 0.9rem;
   display: none;
+}
+
+.highlighted-article .article-meta {
+  margin-top: 1rem;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.secondary-highlight .article-meta {
+  margin-top: 0.5rem;
+}
+
+/* Botón de leer más en artículos destacados */
+.highlighted-article .read-more {
+  color: white;
+  font-weight: 600;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
+  transition: all 0.3s ease;
+  background-color: rgba(33, 33, 33, 0.6);
+  padding: 0.4rem 0.8rem;
+  border-radius: 4px;
+  font-size: 0.85rem;
+}
+
+.highlighted-article .read-more:hover {
+  background-color: rgba(33, 33, 33, 0.9);
+}
+
+.highlighted-article .read-more i {
+  font-size: 0.8rem;
+  transition: transform 0.3s ease;
+}
+
+.highlighted-article .read-more:hover i {
+  transform: translateX(3px);
+}
+
+/* Etiquetas comunes */
+.section {
+  position: absolute;
+  top: 1rem;
+  left: 1rem;
+  background-color: rgba(33, 33, 33, 0.8);
+  color: white;
+  padding: 0.3rem 0.8rem;
+  border-radius: 4px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  backdrop-filter: blur(5px);
+  z-index: 10;
+}
+
+.video-icon {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  background-color: rgba(223, 32, 32, 0.85);
+  color: white;
+  padding: 0.4rem 0.8rem;
+  border-radius: 4px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  backdrop-filter: blur(5px);
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  z-index: 10;
+}
+
+.video-icon i {
+  font-size: 0.8rem;
 }
 
 .author {
@@ -214,7 +247,7 @@ h2::before {
   letter-spacing: 0.5px;
 }
 
-/* Normales - Grid */
+/* Artículos Genéricos - Grid */
 .generic-articles {
   padding: 2rem;
 }
@@ -301,6 +334,7 @@ h2::before {
   gap: 0.3rem;
 }
 
+/* Estilo común para read-more */
 .read-more {
   color: #757575;
   font-weight: 600;
@@ -327,53 +361,53 @@ h2::before {
 /* Responsive */
 @media (max-width: 1024px) {
   .highlighted-grid {
-      grid-template-columns: 1fr;
+    grid-template-columns: 1fr;
   }
   
   .main-highlight {
-      grid-column: 1;
-      grid-row: 1;
-      min-height: 400px;
+    grid-column: 1;
+    grid-row: 1;
+    min-height: 400px;
   }
   
   .secondary-highlights {
-      grid-column: 1;
-      grid-row: 2;
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 1px;
+    grid-column: 1;
+    grid-row: 2;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1px;
   }
 }
 
 @media (max-width: 768px) {
   .homepage-content {
-      padding: 1.5rem;
+    padding: 1.5rem;
   }
   
   .main-highlight h3 {
-      font-size: 1.8rem;
+    font-size: 1.8rem;
   }
   
   .articles-grid {
-      grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-      gap: 1.5rem;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 1.5rem;
   }
 }
 
 @media (max-width: 576px) {
   .nav-links {
-      display: none;
+    display: none;
   }
   
   .secondary-highlights {
-      grid-template-columns: 1fr;
+    grid-template-columns: 1fr;
   }
   
   .articles-grid {
-      grid-template-columns: 1fr;
+    grid-template-columns: 1fr;
   }
   
   .main-highlight {
-      min-height: 300px;
+    min-height: 300px;
   }
 }

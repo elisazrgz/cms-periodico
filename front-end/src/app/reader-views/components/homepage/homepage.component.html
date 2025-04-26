@@ -17,6 +17,9 @@
           <div class="article-content">
             <h3>{{ mainHighlight.title }}</h3>
             <p>{{ mainHighlight.subtitle }}</p>
+            <div class="article-meta">
+              <a [routerLink]="['/article-view', mainHighlight._id]" class="read-more">Leer más <i class="fas fa-arrow-right"></i></a>
+            </div>
           </div>
         </div>
       }
@@ -33,6 +36,9 @@
               <div class="article-content">
                 <h3>{{ article.title }}</h3>
                 <p>{{ article.subtitle }}</p>
+                <div class="article-meta">
+                  <a [routerLink]="['/article-view', article._id]" class="read-more">Leer más <i class="fas fa-arrow-right"></i></a>
+                </div>
               </div>
             </div>
           }
@@ -60,7 +66,7 @@
               <span class="article-date">
                 <i class="far fa-clock"></i> Hace 3 horas
               </span>
-              <a [routerLink]="['article-view', article._id]" class="read-more">Leer más <i class="fas fa-arrow-right"></i></a>
+              <a [routerLink]="['/article-view', article._id]" class="read-more">Leer más <i class="fas fa-arrow-right"></i></a>
             </div>
           </div>
       </article>
