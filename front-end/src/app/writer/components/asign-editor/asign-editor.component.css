@@ -1,174 +1,190 @@
-span {
+/* General reset */
+* {
     margin: 0;
     padding: 0;
-    border: 0;
-    font-size: 100%;
-    font: inherit;
-    vertical-align: baseline;
     box-sizing: border-box;
-}
-
-/* Body */
-body {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
-    line-height: 1.6;
+  }
+  
+  body {
+    font-family: 'Source Sans Pro', sans-serif;
     background-color: #f5f5f5;
-    color: #333;
+    color: #212121;
+    line-height: 1.6;
     display: flex;
     flex-direction: column;
-    min-height: 100vh;  
-}
-
-/* Header */
-header {
-    background-color: #000000;
-    padding: 5px 0;
-    text-align: center;
-    color: white;
-}
-
-.firstBar {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 5px 20px;
-}
-
-.logo-container {
-    display: flex;
-    align-items: center;
-    cursor: pointer;
-}
-
-.logo-container img {
-    width: 30px;
-    height: 30px;
-    margin-right: 10px;
-}
-
-.logo-container h4 {
-    font-size: 1.2em;
-    margin: 0;
-}
-
-/* Main */
-main {
-    flex: 1; 
+    min-height: 100vh;
+  }
+  
+  /* Main Content */
+  main {
+    flex: 1;
     margin: 40px 5vw;
     padding: 20px;
-}
-
-/* Título */
-h2.title {
-    font-size: 2.5em;
-    color: #333;
-    margin-bottom: 30px;
-}
-
-/* Botón */
-button {
-    display: inline-block;
-    outline: 0;
-    border: 0;
-    cursor: pointer;
-    color: #fff;
-    font-weight: 500;
-    border-radius: 4px;
-    font-size: 14px;
-    height: 40px;
-    padding: 0 20px;
-    background: linear-gradient(92.88deg, rgb(69, 94, 181) 9.16%, rgb(86, 67, 204) 43.89%, rgb(103, 63, 215) 64.72%);
-    transition: all 0.5s ease 0s;
-    margin-bottom: 20px;
-}
-
-button:hover {
-    box-shadow: rgb(80 63 205 / 50%) 0px 1px 40px;
-    transition: all 0.1s ease 0s;
-}
-
-/* Container de los editores */
-.editor-grid {
+  }
+  
+  /* Título */
+  h2.title {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.2em;
+    font-weight: 700;
+    color: #212121;
+    margin-bottom: 40px;
+    position: relative;
+    padding-left: 1.2rem;
+  }
+  
+  h2.title::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 5px;
+    height: 80%;
+    background-color: #0073e6;
+    border-radius: 3px;
+  }
+  
+  /* Grid de editores */
+  .editor-grid {
     list-style-type: none;
     padding: 0;
     margin: 0;
-    display: flex;
-    flex-wrap: wrap;
-    gap: 20px;
-}
-
-.editor-item {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 25px;
+  }
+  
+  .editor-item {
     background-color: #fff;
-    border-radius: 8px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    padding: 15px;
+    border-radius: 10px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+    padding: 1.5rem;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .editor-item::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
     width: 100%;
-    max-width: 25%;
-    transition: transform 0.3s;
-    text-align: left;
-}
-
-.editor-item:hover {
-    transform: scale(1.05);
-}
-
-.editor-item h3 {
-    font-size: 1.3em;
-    margin-bottom: 10px;
-    color: #333;
-}
-
-.editor-item p {
-    font-size: 0.8em;
-    color: #555;
-    margin-bottom: 15px;
-}
-
-.editor-item h4 {
-    font-size: 0.8em;
-    color: #0073e6;
-    font-style: italic;
+    height: 4px;
+    background: linear-gradient(90deg, #0073e6, #0088ff);
+  }
+  
+  .editor-item:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 12px 30px rgba(0,0,0,0.15);
+  }
+  
+  .editor-item h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.4em;
     margin-bottom: 20px;
-}
-
-.editor-item button {
+    color: #212121;
+    font-weight: 700;
+    text-align: center;
+    position: relative;
+    padding-bottom: 10px;
+  }
+  
+  .editor-item h3::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 40px;
+    height: 2px;
+    background-color: #bdbdbd;
+  }
+  
+  .editor-item button {
     display: inline-block;
-    padding: 10px 20px;
-    background-color: #0073e6;
+    padding: 12px 20px;
+    background-color: #212121;
     color: #fff;
     border: none;
-    border-radius: 4px;
+    border-radius: 6px;
     text-decoration: none;
     cursor: pointer;
-    transition: background-color 0.3s;
-}
-
-.editor-item button:hover {
-    background-color: #005bb5;
-}
-
-/* Footer */
-footer {
-    background-color: #0073e6;
-    color: white;
-    text-align: center;
-    padding: 20px 0;
-    margin-top: auto; 
-}
-
-/* Media Queries */
-@media (max-width: 768px) {
-    .editor-item {
-        max-width: 100%;
+    transition: all 0.3s ease;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    margin-top: 10px;
+    width: 100%;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+  }
+  
+  .editor-item button:hover {
+    background-color: #424242;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 12px rgba(0,0,0,0.15);
+  }
+  
+  /* Decoración para los items */
+  .editor-item::after {
+    content: '👤';
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 1.2rem;
+    opacity: 0.2;
+  }
+  
+  /* Media Queries */
+  @media (max-width: 1024px) {
+    .editor-grid {
+      grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
     }
-
+  }
+  
+  @media (max-width: 768px) {
+    main {
+      margin: 30px 4vw;
+    }
+    
     h2.title {
-        font-size: 1.6em;
+      font-size: 1.8em;
+      margin-bottom: 30px;
     }
-
-    header .logo-container h4 {
-        font-size: 1.5em;
+    
+    .editor-grid {
+      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+      gap: 20px;
     }
-}
+    
+    .editor-item {
+      padding: 1.2rem;
+    }
+    
+    .editor-item h3 {
+      font-size: 1.2em;
+    }
+    
+    .editor-item button {
+      padding: 10px 15px;
+      font-size: 0.9em;
+    }
+  }
+  
+  @media (max-width: 576px) {
+    .editor-grid {
+      grid-template-columns: 1fr;
+    }
+    
+    h2.title {
+      font-size: 1.5em;
+      margin-bottom: 25px;
+    }
+    
+    .editor-item h3 {
+      font-size: 1.3em;
+    }
+  }
