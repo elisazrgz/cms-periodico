@@ -11,14 +11,29 @@
       <ul class="draft-grid">
         @for(article of articleList; track $index) {
           <li class="draft-item">
-            <h3>{{article.title}}</h3>
-            <p>{{article.subtitle}}</p>
-            <h4>Estado: {{ getStatusInSpanish(article.status) }}</h4>
-            <h4>Autor: {{article.authorId.completeName}}</h4> 
-            @if(article.status === "revisable" || article.status === "publish"){
-              <h4>Editor: {{article.editorId.completeName}}</h4>
-            }
-            <button [routerLink]="['/writer/draft-details', article._id]">Ver más detalles</button>
+            
+            <div class="article-image-container">
+              <span class="status-tag" 
+                    [ngClass]="{'draft-tag': article.status === 'draft', 
+                               'review-tag': article.status === 'revisable', 
+                               'publish-tag': article.status === 'publish'}">
+                {{ getStatusInSpanish(article.status) }}
+              </span>
+              <img [src]="article.image" [alt]="article.title">
+            </div>
+
+            <div class="draft-item-content">
+              <h3>{{article.title}}</h3>
+              <p>{{article.subtitle}}</p>
+              <div class="draft-item-meta">
+                <h4>Autor: {{article.authorId.completeName}}</h4> 
+                @if(article.status === "revisable" || article.status === "publish"){
+                  <h4>Editor: {{article.editorId.completeName}}</h4>
+                }
+              </div>
+              <button [routerLink]="['/writer/draft-details', article._id]">Ver más detalles</button>
+            </div>
+
           </li>
         }
       </ul>

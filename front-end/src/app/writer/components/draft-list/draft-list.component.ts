@@ -1,3 +1,4 @@
+import { CommonModule } from '@angular/common';
 import { Component, inject } from '@angular/core';
 import { WriterService } from '../../services/writer.service';
 import { Router, RouterLink } from '@angular/router';
@@ -8,7 +9,7 @@ import { FooterComponent } from '../../../reader-views/components/footer/footer.
 @Component({
   selector: 'app-draft-list',
   standalone: true,
-  imports: [RouterLink, HeaderLoggedComponent, FooterComponent],
+  imports: [CommonModule, RouterLink, HeaderLoggedComponent, FooterComponent],
   templateUrl: './draft-list.component.html',
   styleUrl: './draft-list.component.css'
 })
