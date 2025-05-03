@@ -1,0 +1,57 @@
+<app-header-logged></app-header-logged>
+
+    <main>
+    <!-- Contenedor del formulario -->
+    <form class="form-container" [formGroup]="draftForm" (ngSubmit)="handleCreateArticleForm()">
+        <h3>Formulario para crear un nuevo borrador</h3>
+        <p>* indica campo obligatorio</p>
+    
+        <div class="form-item">
+            <label>Título *</label>
+            <input type="text" formControlName="title">
+        </div>
+    
+        <div class="form-item">
+            <label>Subtítulo *</label>
+            <input type="text" formControlName="subtitle">
+        </div>
+
+        <div class="form-item">
+            <label>Imagen</label>
+            <input type="file" (change)="onFileSelected($event)" accept="image/*">
+        </div>
+    
+        <div class="form-item">
+            <label>Cuerpo de la noticia *</label>
+            <textarea class="body-container" formControlName="body"></textarea>
+        </div>
+
+        <div class="form-item">
+            <label>Sección *</label>
+            <select formControlName="section">
+                <option value="politics">Política</option>
+                <option value="economy">Economía</option>
+                <option value="science">Ciencia</option>
+                <option value="sports">Deportes</option>
+            </select>
+        </div>
+
+        <div class="form-item">
+            <label>Estado de la noticia *</label>
+            <select formControlName="status">
+                <option value="draft">Borrador</option>
+            </select>
+        </div>
+
+        <div class="form-item">
+            <label>Marca si el artículo pertenece a "Destacados"</label>
+            <input type="checkbox" formControlName="highlight">
+        </div>
+
+    <input class="submit-btn" type="submit" value="Enviar">
+
+    </form>
+
+    </main>
+
+<app-footer></app-footer>

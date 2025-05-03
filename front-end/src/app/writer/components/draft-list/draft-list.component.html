@@ -1,0 +1,27 @@
+<app-header-logged></app-header-logged>
+  
+    <main>
+      <!-- Título principal de la página -->
+      <h2 class="title">Panel de redactor</h2>
+  
+      <!-- Botón para crear un nuevo borrador -->
+      <button [routerLink]="['/writer/create-article']">Crear un nuevo borrador</button>
+  
+      <!-- Lista de borradores -->
+      <ul class="draft-grid">
+        @for(article of articleList; track $index) {
+          <li class="draft-item">
+            <h3>{{article.title}}</h3>
+            <p>{{article.subtitle}}</p>
+            <h4>Estado: {{ getStatusInSpanish(article.status) }}</h4>
+            <h4>Autor: {{article.authorId.completeName}}</h4> 
+            @if(article.status === "revisable" || article.status === "publish"){
+              <h4>Editor: {{article.editorId.completeName}}</h4>
+            }
+            <button [routerLink]="['/writer/draft-details', article._id]">Ver más detalles</button>
+          </li>
+        }
+      </ul>
+    </main>
+  
+<app-footer></app-footer>

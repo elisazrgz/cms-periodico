@@ -1,0 +1,35 @@
+<app-header-logged></app-header-logged>
+
+  <main>
+  <!-- Contenedor de la noticia -->
+    <div class="draft-container">
+  
+      <div class="draft-item">
+        <h2 class="title">{{ article.title }}</h2>
+        <h3 class="subtitle">{{ article.subtitle }}</h3>
+        <div class="content">
+          <img src= {{article.image}}  />
+          <p><strong>Sección:</strong> {{ getSectionInSpanish(article.section) }}</p>
+          <p class="paragraph-text">{{ article.body }}</p>
+          <p><strong>Fecha de creación:</strong> {{ article.createdAt | date: 'd/M/y' }} </p>
+          <p><strong>Últimas modificaciones:</strong> {{ article.updatedAt | date: 'd/M/y' }} </p>
+          @if (article.status === "publish"){
+            <p><strong>Fecha de publicación:</strong> {{ article.date | date: 'd/M/y' }} </p>
+          }
+        </div>
+      
+        <div class="button-container">
+          @if (article.status === "draft"){
+            <button [routerLink]="['/writer/modify-article', article._id]">Editar borrador</button>
+            <button [routerLink]="['/writer/asign-editor', article._id]">Enviar a revisión</button>
+          }
+          <button [routerLink]="['/writer/draft-list']">Volver a la lista</button>
+        </div>
+  
+      </div>
+
+    </div>
+
+  </main>
+
+<app-footer></app-footer>

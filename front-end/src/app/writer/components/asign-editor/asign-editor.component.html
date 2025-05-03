@@ -1,0 +1,18 @@
+<app-header-logged></app-header-logged>
+
+      <main>
+        <!-- Título principal de la página -->
+         <h2 class="title">Por favor, elige un editor al que asignar este artículo para revisión:</h2>
+         
+        <!-- Lista de editores -->
+         <ul class="editor-grid">
+            @for(editor of editors; track $index){
+                <li class="editor-item">
+                    <h3>{{editor.completeName}}</h3>
+                    <button (click)="assignAndSendToEditor(editor._id)">Asignar y enviar a revisión</button>
+                </li>
+            }
+        </ul>
+        </main>
+
+<app-footer></app-footer>
