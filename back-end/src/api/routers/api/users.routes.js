@@ -6,6 +6,6 @@ router.post('/register', register);
 
 router.post('/login', login);
 
-router.get('/allEditors', getAllEditors);
+router.get('/alleditors', getAllEditors);
 
 module.exports = router;

@@ -1,0 +1,39 @@
+<app-header-logged></app-header-logged>
+  
+    <main>
+      <!-- Título principal de la página -->
+      <h2 class="title">Panel de editor</h2>
+    
+      <!-- Lista de artículos -->
+      <ul class="revisable-grid">
+        @for(article of articleList; track $index) {
+          <li class="revisable-item">
+            
+            <div class="article-image-container">
+              <span class="status-tag" 
+                    [ngClass]="{'draft-tag': article.status === 'draft', 
+                               'review-tag': article.status === 'revisable', 
+                               'publish-tag': article.status === 'publish'}">
+                {{ getStatusInSpanish(article.status) }}
+              </span>
+              <img [src]="article.image" [alt]="article.title">
+            </div>
+
+            <div class="revisable-item-content">
+              <h3>{{article.title}}</h3>
+              <p>{{article.subtitle}}</p>
+              <div class="revisable-item-meta">
+                <h4>Autor: {{article.authorId?.completeName}}</h4> 
+                @if(article.status === "revisable" || article.status === "publish"){
+                  <h4>Editor: {{article.editorId.completeName}}</h4>
+                }
+              </div>
+              <button [routerLink]="['/editor/revisable-details', article._id]">Ver más detalles</button>
+            </div>
+
+          </li>
+        }
+      </ul>
+    </main>
+  
+<app-footer></app-footer>

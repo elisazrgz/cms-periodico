@@ -37,7 +37,7 @@ export class LoginComponent {
       alert('Login exitoso');
       const userRole = data.data.role;
       if (userRole === 'editor') {
-        this.router.navigate(['/editor']);
+        this.router.navigate(['/editor/revisable-list']);
       } else if (userRole === 'writer') {
         this.router.navigate(['/writer/draft-list']);
       } else {
