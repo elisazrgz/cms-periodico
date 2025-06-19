@@ -2,8 +2,8 @@ import { Component, inject } from '@angular/core';
 import { WriterService } from '../../services/writer.service';
 import { ActivatedRoute, Router, RouterLink } from '@angular/router';
 import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
-import { HeaderLoggedComponent } from '../../../reader-views/components/header-logged/header-logged.component';
-import { FooterComponent } from '../../../reader-views/components/footer/footer.component';
+import { HeaderLoggedComponent } from '../../../reader/components/header-logged/header-logged.component';
+import { FooterComponent } from '../../../reader/components/footer/footer.component';
 
 @Component({
   selector: 'app-modify-article',
@@ -13,7 +13,6 @@ import { FooterComponent } from '../../../reader-views/components/footer/footer.
   styleUrl: './modify-article.component.css'
 })
 export class ModifyArticleComponent {
-
   private writerService: WriterService = inject(WriterService);
   private activatedRoute: ActivatedRoute = inject(ActivatedRoute);
   private router: Router = inject(Router);

@@ -1,9 +1,9 @@
 import { Component, inject } from '@angular/core';
 import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
-import { FooterComponent } from '../../../reader-views/components/footer/footer.component';
-import { HeaderLoggedComponent } from '../../../reader-views/components/header-logged/header-logged.component';
 import { WriterService } from '../../../writer/services/writer.service';
 import { ActivatedRoute, Router } from '@angular/router';
+import { HeaderLoggedComponent } from '../../../reader/components/header-logged/header-logged.component';
+import { FooterComponent } from '../../../reader/components/footer/footer.component';
 
 @Component({
   selector: 'app-modify-article',

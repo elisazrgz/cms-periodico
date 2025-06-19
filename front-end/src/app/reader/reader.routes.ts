@@ -1,13 +1,13 @@
 import { Routes } from '@angular/router';
-import { HomepageComponent } from './components/homepage/homepage.component';
 import { ArticleViewComponent } from './components/article-view/article-view.component';
 import { SectionViewComponent } from './components/section-view/section-view.component';
+import { HomepageViewComponent } from './components/homepage-view/homepage-view.component';
 
 
-export const HOME_ROUTES: Routes = [
+export const READER_ROUTES: Routes = [
     {
         path: "",
-        component: HomepageComponent
+        component: HomepageViewComponent
     },
     {
         path: "section-view/:section",

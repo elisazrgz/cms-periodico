@@ -1,22 +1,19 @@
-import { WriterService } from './../../../writer/services/writer.service';
 import { Component, inject } from '@angular/core';
 import { EditorService } from '../../services/editor.service';
 import { ActivatedRoute, Router, RouterLink } from '@angular/router';
-import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
+import { ReactiveFormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
-import { HeaderLoggedComponent } from '../../../reader-views/components/header-logged/header-logged.component';
-import { FooterComponent } from '../../../reader-views/components/footer/footer.component';
-
+import { HeaderLoggedComponent } from '../../../reader/components/header-logged/header-logged.component';
+import { FooterComponent } from '../../../reader/components/footer/footer.component';
 
 @Component({
-  selector: 'app-revisable-details',
+  selector: 'app-article-details',
   standalone: true,
   imports: [RouterLink, CommonModule, ReactiveFormsModule, HeaderLoggedComponent, FooterComponent],
-  templateUrl: './revisable-details.component.html',
-  styleUrl: './revisable-details.component.css'
+  templateUrl: './article-details.component.html',
+  styleUrl: './article-details.component.css'
 })
-export class RevisableDetailsComponent {
-
+export class ArticleDetailsComponent {
   private editorService: EditorService = inject(EditorService);
   private activatedRoute: ActivatedRoute = inject(ActivatedRoute);
   public article: any = [];

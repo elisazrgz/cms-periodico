@@ -2,8 +2,8 @@ import { Component, inject } from '@angular/core';
 import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { Router, RouterLink } from '@angular/router';
 import { WriterService } from '../../services/writer.service';
-import { HeaderLoggedComponent } from '../../../reader-views/components/header-logged/header-logged.component';
-import { FooterComponent } from '../../../reader-views/components/footer/footer.component';
+import { HeaderLoggedComponent } from '../../../reader/components/header-logged/header-logged.component';
+import { FooterComponent } from '../../../reader/components/footer/footer.component';
 
 @Component({
   selector: 'app-create-article',
@@ -13,7 +13,6 @@ import { FooterComponent } from '../../../reader-views/components/footer/footer.
   styleUrl: './create-article.component.css'
 })
 export class CreateArticleComponent {
-  
   private writerService: WriterService = inject(WriterService);
   private router: Router = inject(Router);
   private writerId: any = localStorage.getItem("_id");

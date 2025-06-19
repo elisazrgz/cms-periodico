@@ -1,26 +1,28 @@
 import { Component, inject } from '@angular/core';
-import { WriterService } from '../../services/writer.service';
-import { ActivatedRoute, RouterLink } from '@angular/router';
+import { ReaderService } from '../services/reader.service';
+import { ActivatedRoute } from '@angular/router';
 import { DatePipe } from '@angular/common';
-import { HeaderLoggedComponent } from '../../../reader-views/components/header-logged/header-logged.component';
-import { FooterComponent } from '../../../reader-views/components/footer/footer.component';
+import { HeaderLoggedComponent } from '../header-logged/header-logged.component';
+import { HeaderUnloggedComponent } from '../header-unlogged/header-unlogged.component';
+import { FooterComponent } from '../footer/footer.component';
 
 @Component({
-  selector: 'app-draft-details',
+  selector: 'app-article-view',
   standalone: true,
-  imports: [RouterLink, DatePipe, HeaderLoggedComponent, FooterComponent],
-  templateUrl: './draft-details.component.html',
-  styleUrl: './draft-details.component.css'
+  imports: [DatePipe, HeaderLoggedComponent, HeaderUnloggedComponent, FooterComponent],
+  templateUrl: './article-view.component.html',
+  styleUrl: './article-view.component.css'
 })
-export class DraftDetailsComponent {  
-  private writerService: WriterService = inject(WriterService);
+export class ArticleViewComponent {
+  public token: any = localStorage.getItem("token");
+  private readerService: ReaderService = inject(ReaderService);
   private activatedRoute: ActivatedRoute = inject(ActivatedRoute);
   public article: any = [];
   
   ngOnInit(){
       this.activatedRoute.params.subscribe( (params) => {
         const id: string = params["id"]  
-        this.writerService.getArticleById(id).subscribe(
+        this.readerService.getArticleById(id).subscribe(
           (data: any) => {
               this.article = data[0];
           }, (error) => {
@@ -40,5 +42,4 @@ export class DraftDetailsComponent {
       default: return 'Desconocido'
     }
   }
-
 }

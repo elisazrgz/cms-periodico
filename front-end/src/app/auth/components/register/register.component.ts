@@ -12,7 +12,6 @@ import { Router } from '@angular/router';
   styleUrls: ['./register.component.css']
 })
 export class RegisterComponent {
-
   private userFormData: FormData =new FormData()
   private router = inject(Router);
   private authService : AuthService = inject(AuthService)

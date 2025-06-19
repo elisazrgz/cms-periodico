@@ -2,17 +2,17 @@ import { Component, inject } from '@angular/core';
 import { WriterService } from '../../services/writer.service';
 import { ActivatedRoute, Router, RouterLink } from '@angular/router';
 import { concatMap } from 'rxjs';
-import { HeaderLoggedComponent } from "../../../reader-views/components/header-logged/header-logged.component";
-import { FooterComponent } from '../../../reader-views/components/footer/footer.component';
+import { HeaderLoggedComponent } from '../../../reader/components/header-logged/header-logged.component';
+import { FooterComponent } from '../../../reader/components/footer/footer.component';
 
 @Component({
-  selector: 'app-asign-editor',
+  selector: 'app-assign-editor',
   standalone: true,
   imports: [HeaderLoggedComponent, FooterComponent],
-  templateUrl: './asign-editor.component.html',
-  styleUrl: './asign-editor.component.css'
+  templateUrl: './assign-editor.component.html',
+  styleUrl: './assign-editor.component.css'
 })
-export class AsignEditorComponent {
+export class AssignEditorComponent {
 
   private writerService: WriterService = inject(WriterService);
   public editors: any = [];

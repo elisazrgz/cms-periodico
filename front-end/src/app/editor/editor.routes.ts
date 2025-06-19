@@ -1,8 +1,8 @@
 import { Routes } from '@angular/router';
 import { ModifyArticleComponent } from './components/modify-article/modify-article.component';
-import { RevisableListComponent } from './components/revisable-list/revisable-list.component';
 import { editorGuard } from './guard/editor.guard';
-import { RevisableDetailsComponent } from './components/revisable-details/revisable-details.component';
+import { ArticleDetailsComponent } from './components/article-details/article-details.component';
+import { ArticleListComponent } from './components/article-list/article-list.component';
 
 export const EDITOR_ROUTES: Routes = [
     {
@@ -11,14 +11,14 @@ export const EDITOR_ROUTES: Routes = [
         canActivate: [editorGuard]
     },
     {
-        path: "revisable-list",
-        component: RevisableListComponent,
+        path: "article-list",
+        component: ArticleListComponent,
         canActivate: [editorGuard]
         
     },
     {
-        path: "revisable-details/:id",
-        component: RevisableDetailsComponent,
+        path: "article-details/:id",
+        component: ArticleDetailsComponent,
         canActivate: [editorGuard]
     }
 ];

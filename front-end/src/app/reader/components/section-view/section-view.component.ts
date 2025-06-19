@@ -15,10 +15,8 @@ import { FooterComponent } from '../footer/footer.component';
 })
 export class SectionViewComponent {
   public token: any = localStorage.getItem("token");
-  
   private readerService: ReaderService = inject(ReaderService);
   private activatedRoute: ActivatedRoute = inject(ActivatedRoute);
-  
   public publishedArticles: any[] = [];
   public article: any = [];
   public section: string = '';

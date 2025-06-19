@@ -1,24 +1,23 @@
-import { EditorService } from './../../services/editor.service';
-import { HeaderLoggedComponent } from './../../../reader-views/components/header-logged/header-logged.component';
+import { EditorService } from '../../services/editor.service';
 import { Component, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { Router, RouterLink } from '@angular/router';
-import { FooterComponent } from '../../../reader-views/components/footer/footer.component';
-
+import { HeaderLoggedComponent } from '../../../reader/components/header-logged/header-logged.component';
+import { FooterComponent } from '../../../reader/components/footer/footer.component';
 
 @Component({
-  selector: 'app-revisable-list',
+  selector: 'app-article-list',
   standalone: true,
   imports: [RouterLink, HeaderLoggedComponent, FooterComponent, CommonModule],
-  templateUrl: './revisable-list.component.html',
-  styleUrl: './revisable-list.component.css'
+  templateUrl: './article-list.component.html',
+  styleUrl: './article-list.component.css'
 })
-export class RevisableListComponent {
+export class ArticleListComponent {
   private editorService: EditorService = inject(EditorService);
   public articleList: any = [];
-  public drafts = [];
-  public revisables = [];
-  public published = [];
+  // public drafts = [];
+  // public revisables = [];
+  // public published = [];
   private editorId: any = localStorage.getItem("_id");
   private router: Router = inject(Router);
   

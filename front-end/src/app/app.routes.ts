@@ -20,7 +20,7 @@ export const routes: Routes = [
     },
     {
         path: "",
-        loadChildren: () => import("./reader-views/home.routes").then(module => module.HOME_ROUTES)
+        loadChildren: () => import("./reader/reader.routes").then(module => module.READER_ROUTES)
     },
     {
         path: "**",

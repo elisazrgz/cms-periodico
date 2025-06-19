@@ -2,24 +2,23 @@ import { CommonModule } from '@angular/common';
 import { Component, inject } from '@angular/core';
 import { WriterService } from '../../services/writer.service';
 import { Router, RouterLink } from '@angular/router';
-import { HeaderLoggedComponent } from '../../../reader-views/components/header-logged/header-logged.component';
-import { FooterComponent } from '../../../reader-views/components/footer/footer.component';
+import { HeaderLoggedComponent } from '../../../reader/components/header-logged/header-logged.component';
+import { FooterComponent } from '../../../reader/components/footer/footer.component';
 
 
 @Component({
-  selector: 'app-draft-list',
+  selector: 'app-article-list',
   standalone: true,
   imports: [CommonModule, RouterLink, HeaderLoggedComponent, FooterComponent],
-  templateUrl: './draft-list.component.html',
-  styleUrl: './draft-list.component.css'
+  templateUrl: './article-list.component.html',
+  styleUrl: './article-list.component.css'
 })
-export class DraftListComponent {
-
+export class ArticleListComponent {
   private writerService: WriterService = inject(WriterService);
   public articleList: any = [];
-  public drafts = [];
-  public revisables = [];
-  public published = [];
+  // public drafts = [];
+  // public revisables = [];
+  // public published = [];
   private authorId: any = localStorage.getItem("_id");
   private router: Router = inject(Router);
   

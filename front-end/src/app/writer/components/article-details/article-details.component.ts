@@ -1,30 +1,26 @@
 import { Component, inject } from '@angular/core';
-import { ReaderService } from '../services/reader.service';
-import { ActivatedRoute } from '@angular/router';
+import { WriterService } from '../../services/writer.service';
+import { ActivatedRoute, RouterLink } from '@angular/router';
 import { DatePipe } from '@angular/common';
-import { HeaderLoggedComponent } from '../header-logged/header-logged.component';
-import { HeaderUnloggedComponent } from '../header-unlogged/header-unlogged.component';
-import { FooterComponent } from '../footer/footer.component';
+import { HeaderLoggedComponent } from '../../../reader/components/header-logged/header-logged.component';
+import { FooterComponent } from '../../../reader/components/footer/footer.component';
 
 @Component({
-  selector: 'app-article-view',
+  selector: 'app-article-details',
   standalone: true,
-  imports: [DatePipe, HeaderLoggedComponent, HeaderUnloggedComponent, FooterComponent],
-  templateUrl: './article-view.component.html',
-  styleUrl: './article-view.component.css'
+  imports: [RouterLink, DatePipe, HeaderLoggedComponent, FooterComponent],
+  templateUrl: './article-details.component.html',
+  styleUrl: './article-details.component.css'
 })
-export class ArticleViewComponent {
-
-  public token: any = localStorage.getItem("token");
-
-  private readerService: ReaderService = inject(ReaderService);
+export class ArticleDetailsComponent {  
+  private writerService: WriterService = inject(WriterService);
   private activatedRoute: ActivatedRoute = inject(ActivatedRoute);
   public article: any = [];
   
   ngOnInit(){
       this.activatedRoute.params.subscribe( (params) => {
         const id: string = params["id"]  
-        this.readerService.getArticleById(id).subscribe(
+        this.writerService.getArticleById(id).subscribe(
           (data: any) => {
               this.article = data[0];
           }, (error) => {
@@ -44,4 +40,5 @@ export class ArticleViewComponent {
       default: return 'Desconocido'
     }
   }
+
 }
